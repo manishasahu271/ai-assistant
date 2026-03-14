@@ -1,0 +1,52 @@
+2026-03-13 08:00:01 INFO  [main] AppServer - Starting application server v3.4.2
+2026-03-13 08:00:02 INFO  [main] AppServer - Loading configuration from /etc/app/config.yml
+2026-03-13 08:00:03 INFO  [main] DatabasePool - Initializing connection pool (min=5, max=20)
+2026-03-13 08:00:04 INFO  [main] DatabasePool - Connected to PostgreSQL 15.2 at db-prod-01:5432
+2026-03-13 08:00:05 INFO  [main] CacheManager - Redis cache connected at redis-01:6379
+2026-03-13 08:00:06 INFO  [main] AppServer - Server started on port 8080
+2026-03-13 08:01:12 INFO  [http-thread-1] UserService - GET /api/users/1042 - 200 OK (45ms)
+2026-03-13 08:01:15 INFO  [http-thread-3] OrderService - POST /api/orders - 201 Created (120ms)
+2026-03-13 08:01:18 ERROR [http-thread-2] UserService - NullPointerException at UserService.java:142 - user.getProfile() returned null for userId=2087
+2026-03-13 08:01:18 ERROR [http-thread-2] UserService - GET /api/users/2087/profile - 500 Internal Server Error
+2026-03-13 08:01:45 INFO  [http-thread-1] PaymentService - Processing payment for orderId=8834
+2026-03-13 08:01:47 ERROR [http-thread-1] PaymentService - TimeoutException: Payment gateway did not respond within 30000ms for orderId=8834
+2026-03-13 08:01:47 ERROR [http-thread-1] PaymentService - POST /api/payments - 504 Gateway Timeout
+2026-03-13 08:02:10 WARN  [http-thread-4] DatabasePool - Connection pool usage at 85% (17/20 active)
+2026-03-13 08:02:15 INFO  [http-thread-5] OrderService - GET /api/orders?status=pending - 200 OK (230ms)
+2026-03-13 08:02:33 ERROR [http-thread-3] UserService - NullPointerException at UserService.java:142 - user.getProfile() returned null for userId=3201
+2026-03-13 08:02:33 ERROR [http-thread-3] UserService - GET /api/users/3201/profile - 500 Internal Server Error
+2026-03-13 08:03:01 ERROR [http-thread-6] InventoryService - EXCEPTION: StaleObjectStateException - Row was updated by another transaction for productId=445
+2026-03-13 08:03:01 ERROR [http-thread-6] InventoryService - PUT /api/inventory/445 - 409 Conflict
+2026-03-13 08:03:15 WARN  [scheduler] HealthCheck - Memory usage at 82% (6.5GB / 8GB)
+2026-03-13 08:03:30 INFO  [http-thread-2] ReportService - GET /api/reports/daily - 200 OK (1850ms)
+2026-03-13 08:03:45 ERROR [http-thread-7] AuthService - FAIL: JWT token validation failed for userId=1520 - token expired at 2026-03-13T07:30:00Z
+2026-03-13 08:03:45 ERROR [http-thread-7] AuthService - GET /api/dashboard - 401 Unauthorized
+2026-03-13 08:04:00 INFO  [http-thread-1] UserService - GET /api/users/1042 - 200 OK (38ms)
+2026-03-13 08:04:12 ERROR [http-thread-4] PaymentService - TimeoutException: Payment gateway did not respond within 30000ms for orderId=9012
+2026-03-13 08:04:12 ERROR [http-thread-4] PaymentService - POST /api/payments - 504 Gateway Timeout
+2026-03-13 08:04:30 WARN  [scheduler] HealthCheck - CPU usage spike detected: 94% for 15 seconds
+2026-03-13 08:04:45 ERROR [http-thread-8] OrderService - EXCEPTION: DataIntegrityViolationException - Duplicate entry 'ORD-20260313-4421' for key 'order_number'
+2026-03-13 08:04:45 ERROR [http-thread-8] OrderService - POST /api/orders - 500 Internal Server Error
+2026-03-13 08:05:01 INFO  [http-thread-5] NotificationService - Sent 45 email notifications (batch job)
+2026-03-13 08:05:15 ERROR [http-thread-2] UserService - NullPointerException at UserService.java:142 - user.getProfile() returned null for userId=5567
+2026-03-13 08:05:15 ERROR [http-thread-2] UserService - GET /api/users/5567/profile - 500 Internal Server Error
+2026-03-13 08:05:30 WARN  [http-thread-9] DatabasePool - Slow query detected: SELECT * FROM orders WHERE status='pending' took 4500ms
+2026-03-13 08:05:45 ERROR [http-thread-3] PaymentService - TimeoutException: Payment gateway did not respond within 30000ms for orderId=9105
+2026-03-13 08:05:45 ERROR [http-thread-3] PaymentService - POST /api/payments - 504 Gateway Timeout
+2026-03-13 08:06:00 ERROR [http-thread-10] InventoryService - EXCEPTION: StaleObjectStateException - Row was updated by another transaction for productId=221
+2026-03-13 08:06:00 ERROR [http-thread-10] InventoryService - PUT /api/inventory/221 - 409 Conflict
+2026-03-13 08:06:15 WARN  [scheduler] HealthCheck - Memory usage at 88% (7.0GB / 8GB)
+2026-03-13 08:06:30 ERROR [http-thread-1] AuthService - FAIL: JWT token validation failed for userId=3380 - token expired at 2026-03-13T07:45:00Z
+2026-03-13 08:06:30 ERROR [http-thread-1] AuthService - GET /api/settings - 401 Unauthorized
+2026-03-13 08:06:45 FATAL [http-thread-11] DatabasePool - ABORT: Connection pool exhausted - all 20 connections in use, 12 requests queued
+2026-03-13 08:06:45 FATAL [http-thread-11] AppServer - Application entering degraded mode - new requests will be rejected
+2026-03-13 08:07:00 ERROR [http-thread-12] AppServer - FAIL: Health check failed - database pool exhausted
+2026-03-13 08:07:15 WARN  [main] AppServer - Initiating graceful shutdown sequence
+2026-03-13 08:07:16 INFO  [main] DatabasePool - Draining active connections (20 active, 12 queued)
+2026-03-13 08:07:20 INFO  [main] DatabasePool - All connections released
+2026-03-13 08:07:21 INFO  [main] AppServer - Server stopped. Restarting in 10 seconds...
+2026-03-13 08:07:31 INFO  [main] AppServer - Starting application server v3.4.2
+2026-03-13 08:07:32 INFO  [main] DatabasePool - Initializing connection pool (min=5, max=20)
+2026-03-13 08:07:33 INFO  [main] DatabasePool - Connected to PostgreSQL 15.2 at db-prod-01:5432
+2026-03-13 08:07:34 INFO  [main] CacheManager - Redis cache connected at redis-01:6379
+2026-03-13 08:07:35 INFO  [main] AppServer - Server restarted successfully on port 8080

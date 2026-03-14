@@ -1,0 +1,6 @@
+.env
+pending_tickets.json
+__pycache__/
+*.pyc
+venv/
+.venv/

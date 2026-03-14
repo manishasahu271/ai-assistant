@@ -1,0 +1,38 @@
+2026-03-13 09:00:00 INFO  [jenkins] Pipeline - Build #1247 started for branch: feature/user-dashboard
+2026-03-13 09:00:01 INFO  [jenkins] GitCheckout - Cloning repository from https://github.com/company/webapp.git
+2026-03-13 09:00:15 INFO  [jenkins] GitCheckout - Checked out commit abc4f21 on branch feature/user-dashboard
+2026-03-13 09:00:16 INFO  [jenkins] BuildStage - Running: mvn clean compile -DskipTests
+2026-03-13 09:01:45 INFO  [jenkins] BuildStage - BUILD SUCCESS (89 seconds)
+2026-03-13 09:01:46 INFO  [jenkins] TestStage - Running: mvn test -Dsuite=unit
+2026-03-13 09:02:10 INFO  [jenkins] TestRunner - Executing 342 unit tests...
+2026-03-13 09:02:45 INFO  [jenkins] TestRunner - Unit tests: 340 passed, 2 failed, 0 skipped
+2026-03-13 09:02:45 ERROR [jenkins] TestRunner - FAIL: UserProfileTest.testGetProfileReturnsNull - Expected NOT NULL but got NULL for userId=9999
+2026-03-13 09:02:45 ERROR [jenkins] TestRunner - FAIL: PaymentTimeoutTest.testGatewayTimeout - Test timed out after 30000ms, expected response within 5000ms
+2026-03-13 09:02:46 WARN  [jenkins] TestStage - 2 test failures detected, proceeding to integration tests
+2026-03-13 09:02:47 INFO  [jenkins] TestStage - Running: mvn test -Dsuite=integration
+2026-03-13 09:03:00 INFO  [jenkins] DockerCompose - Starting test containers: postgres:15, redis:7, wiremock:3
+2026-03-13 09:03:25 INFO  [jenkins] DockerCompose - All containers healthy
+2026-03-13 09:03:26 INFO  [jenkins] TestRunner - Executing 128 integration tests...
+2026-03-13 09:04:30 ERROR [jenkins] TestRunner - ERROR: OrderIntegrationTest.testCreateDuplicateOrder - DataIntegrityViolationException: Duplicate entry for key 'order_number'
+2026-03-13 09:04:45 ERROR [jenkins] TestRunner - FAIL: InventoryIntegrationTest.testConcurrentUpdate - StaleObjectStateException: Row updated by another transaction
+2026-03-13 09:04:46 ERROR [jenkins] TestRunner - FAIL: InventoryIntegrationTest.testConcurrentUpdate - RETRY 1 of 3
+2026-03-13 09:04:55 ERROR [jenkins] TestRunner - FAIL: InventoryIntegrationTest.testConcurrentUpdate - StaleObjectStateException: Row updated by another transaction
+2026-03-13 09:04:56 ERROR [jenkins] TestRunner - FAIL: InventoryIntegrationTest.testConcurrentUpdate - RETRY 2 of 3
+2026-03-13 09:05:05 ERROR [jenkins] TestRunner - FAIL: InventoryIntegrationTest.testConcurrentUpdate - StaleObjectStateException: Row updated by another transaction
+2026-03-13 09:05:06 ERROR [jenkins] TestRunner - FAIL: InventoryIntegrationTest.testConcurrentUpdate - RETRY 3 of 3 - GIVING UP
+2026-03-13 09:05:10 ERROR [jenkins] TestRunner - ERROR: AuthIntegrationTest.testExpiredTokenAccess - Expected 401 but got 500 - unhandled exception in error path
+2026-03-13 09:05:30 ERROR [jenkins] TestRunner - FAIL: DatabaseConnectionTest.testPoolExhaustion - EXCEPTION: Connection pool timed out after 10000ms
+2026-03-13 09:05:45 INFO  [jenkins] TestRunner - Integration tests: 123 passed, 5 failed, 0 skipped
+2026-03-13 09:05:46 WARN  [jenkins] TestStage - 5 integration test failures detected
+2026-03-13 09:05:47 INFO  [jenkins] TestStage - Running: mvn test -Dsuite=regression
+2026-03-13 09:06:00 INFO  [jenkins] TestRunner - Executing 89 regression tests...
+2026-03-13 09:07:15 ERROR [jenkins] TestRunner - FAIL: UserDashboardRegressionTest.testLoadDashboard - ElementNotFoundException: #user-stats-widget not found after 10000ms
+2026-03-13 09:07:30 ERROR [jenkins] TestRunner - FAIL: PaymentRegressionTest.testPaymentRetry - EXCEPTION: MaxRetriesExceededException after 3 attempts
+2026-03-13 09:07:31 ERROR [jenkins] TestRunner - FAIL: PaymentRegressionTest.testPaymentRetry - Root cause: TimeoutException from payment gateway
+2026-03-13 09:07:45 INFO  [jenkins] TestRunner - Regression tests: 87 passed, 2 failed, 0 skipped
+2026-03-13 09:07:46 ERROR [jenkins] Pipeline - BUILD #1247 FAIL: 9 total test failures (2 unit + 5 integration + 2 regression)
+2026-03-13 09:07:47 INFO  [jenkins] Notifications - Sending failure notification to #qa-alerts Slack channel
+2026-03-13 09:07:48 INFO  [jenkins] Notifications - Sending failure email to dev-team@company.com
+2026-03-13 09:07:49 INFO  [jenkins] ArtifactArchiver - Archiving test reports to /builds/1247/reports/
+2026-03-13 09:07:50 INFO  [jenkins] ArtifactArchiver - Archiving logs to /builds/1247/logs/
+2026-03-13 09:07:51 INFO  [jenkins] Pipeline - Build #1247 completed in 7m 51s - STATUS: FAILED
