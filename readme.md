@@ -1,4 +1,4 @@
-# AI Log Analyzer & QA Intelligence Platform
+# log2jira
 
 An AI-powered QA platform that automates log analysis, error classification, root-cause detection, and Jira bug ticket creation — helping QA teams reduce manual triage time by up to 70%.
 
