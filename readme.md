@@ -1,6 +1,6 @@
 # log2jira
 
-An AI-powered QA platform that automates log analysis, error classification, root-cause detection, and Jira bug ticket creation — helping QA teams reduce manual triage time by up to 70%.
+AI-powered log analysis and QA intelligence platform that automates the entire triage workflow. Upload CI/CD or application logs and the system detects error patterns, classifies failures into categories like environment issues, code defects, flaky tests, and data problems, then generates complete bug reports. Managers get an email to approve each ticket, and once approved, it auto-creates the Jira issue with a direct link. Built with Mistral AI, LangChain, Jira REST API, and SMTP.
 
 **Live App:** [ai-assistant-intelligence.streamlit.app](https://ai-assistant-intelligence.streamlit.app/)
 
