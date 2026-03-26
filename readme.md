@@ -6,12 +6,6 @@ AI-powered log analysis and QA intelligence platform that automates the entire t
 
 ---
 
-## Demo
-
-https://github.com/user-attachments/assets/YOUR_VIDEO_ID
-
----
-
 ## The Problem
 
 QA engineers spend hours manually reading through CI/CD and application logs, identifying errors, classifying them, writing bug reports, and creating Jira tickets. This process is repetitive, slow, and error-prone — especially when dealing with thousands of log lines across multiple files.
